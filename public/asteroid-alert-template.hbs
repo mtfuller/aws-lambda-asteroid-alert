@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        /*
+         * Set style for basic HTML elements
+         */
+        body {
+            background-color: #eee
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0px;
+            font-family: "Roboto", sans-serif;
+            color: #2D213F;
+        }
+
+        p,
+        small {
+            font-family: "Roboto", sans-serif;
+            color: #2D213F;
+        }
+
+        table {
+            width: 100%;
+            margin: 15px 0px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #dddddd;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: left;
+            font-family: "Roboto", sans-serif;
+            font-size: 14px;
+            color: #2D213F;
+        }
+
+        /*
+        * Set style for container element that will wrap all the page contents
+        */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+
+        /*
+        * Set style for AsteroidAlert logo/header
+        */
+        header {
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        .logo {
+            margin: 0 auto;
+        }
+
+        .logo>svg {
+            width: 55px;
+        }
+
+
+        /*
+        * Set style for "Daily Near Earth Object Update" jumbotron
+        */
+        main {
+            background-color: #fff;
+        }
+        
+        section {
+            padding: 15px
+        }
+
+        section.jumbotron {
+            background-color: #2D213F;
+            height: 150px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.jumbotron>h1 {
+            color: #fff;
+            margin: 10px 0px;
+        }
+
+        div.jumbotron>h4 {
+            color: #fff;
+        }
+
+
+        /*
+        * Set style for the footer
+        */
+        footer {
+            margin: 15px 0px;
+        }
+
+        footer>.signature {
+            color: #ccc;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+    <title>AsteroidAlert | NEO Update</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h3>AsteroidAlert</h3>
+      </header>
+
+      <main>
+        <section class="jumbotron">
+          <div class="jumbotron">
+            <h1>Daily Near Earth Object (NEO) Update</h1>
+            <h4>Let's hunt some space rocks!</h4>
+          </div>
+
+        </section>
+
+        <section>
+          <h1>Potentially Dangerous</h1>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Distance From Earth</th>
+              <th>Diameter (Max)</th>
+            </tr>
+            {{#each potentiallyDangerousNeos}}
+              <tr>
+                <td><a href="{{this.url}}">{{this.name}}</a></td>
+                <td>{{this.miss_distance}}</td>
+                <td>{{this.diameter}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </section>
+
+        <section>
+          <h1>Non-threatening</h1>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Distance From Earth</th>
+              <th>Diameter (Max)</th>
+            </tr>
+            {{#each nonThreateningNeos}}
+              <tr>
+                <td><a href="{{this.url}}">{{this.name}}</a></td>
+                <td>{{this.miss_distance}}</td>
+                <td>{{this.diameter}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          <small>For more information on more near earth objects (NEOs) detected by NASA, check out NASA's <a href="https://cneos.jpl.nasa.gov/ca/">CNEOS website</a>.</small>
+        </p>
+        <p class="signature">Made with stardust.</p>
+
+      </footer>
+    </div>
+
+  </body>
+
+</html>
